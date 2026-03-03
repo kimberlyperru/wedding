@@ -4,7 +4,9 @@ body, html {
     padding: 0;
     font-family: 'Georgia', serif;
     overflow-x: hidden;
-    background-image: url('image/bgg.jpeg'); 
+    /* Note: You have bgg.jpeg here, but #image-bg below covers it. 
+       Keep this as a fallback color if the image fails. */
+    background-color: #000; 
 }
 
 /* Static Image Background */
@@ -15,7 +17,7 @@ body, html {
     width: 100%;
     height: 100%;
     z-index: -1;
-    background-image: url('image/background.jpg'); /* Your background file */
+    background-image: url('image/background.jpg'); 
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -35,7 +37,7 @@ body, html {
 
 /* Hero Section */
 .hero-content {
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.6); /* Slightly darker for better readability */
     padding: 40px;
     border-radius: 15px;
     color: white;
@@ -138,7 +140,7 @@ body, html {
 .couple-photo {
     width: 100%;
     border-radius: 10px;
-    object-fit: cover;
+    object-fit: contain;
     height: auto;
 }
 
@@ -170,15 +172,59 @@ body, html {
     margin-top: 10px;
 }
 
-/* Responsive */
+/* Final Responsive Mobile Fix - Full Image Version */
 @media (max-width: 768px) {
+    /* Allow the screen to scroll naturally if the content is long */
+    .screen {
+        height: auto;
+        min-height: 100vh;
+        padding: 40px 0; /* Adds space at top and bottom so it doesn't touch screen edges */
+        display: block; /* Changes from flex to block so it scrolls correctly */
+    }
+
+    .invite-content {
+        width: 95%; 
+        margin: 0 auto;
+        opacity: 0;
+        transition: opacity 1s 1.2s;
+    }
+
     .invite-grid { 
         flex-direction: column; 
         padding: 20px; 
-        margin: 20px 0;
+        margin: 10px auto;
+        gap: 20px;
+        /* REMOVED max-height and overflow-y to let the card expand fully */
+        height: auto;
+        max-height: none; 
+        overflow: visible; 
     }
-    .invite-right { text-align: center; }
-    .couple-photo { max-width: 250px; }
-    .story-section { border-left: none; border-top: 2px solid #800000; padding: 15px 0 0 0; }
-    .search-box input { width: 220px; }
+
+    .invite-left {
+        width: 100%;
+    }
+
+    .couple-photo { 
+        width: 100%;
+        max-width: 100%; 
+        /* REMOVED max-height constraint so the full vertical image shows */
+        height: auto; 
+        display: block;
+    }
+
+    .invite-right { 
+        text-align: center; 
+        width: 100%;
+    }
+
+    .story-section { 
+        border-left: none; 
+        border-top: 2px solid #800000; 
+        padding: 15px 0 0 0; 
+        margin: 15px 0;
+    }
+
+    .search-box input { 
+        width: 85%; 
+    }
 }
