@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#A06B52">
+    <title>The Big Day | Alex & Sam</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <audio id="rejection-sound" src="image/sad.mp3"></audio>
+    <audio id="success-sound" src="image/cheer.mp3"></audio>
+
+    <div id="image-bg"></div>
+    
+    <div id="landing-page" class="screen">
+        <div class="hero-content">
+            <h1>Please confirm if you are invited.</h1>
+            <div class="search-box">
+                <input type="text" id="guest-name" placeholder="Enter your full name...">
+                <button onclick="checkGuest()">Check Invitation</button>
+            </div>
+            <p id="error-message" class="error-text"></p>
+        </div>
+    </div>
+
+    <div id="invitation-page" class="screen hidden">
+        <div class="curtain-container">
+            <div class="curtain left"></div>
+            <div class="curtain right"></div>
+            
+            <div class="invite-content">
+                <div class="invite-grid">
+                    <div class="invite-left">
+                        <img src="image/bg.jpeg" alt="The Couple" class="couple-photo">
+                    </div>
+                    <div class="invite-right">
+                        <h2>The Wedding of <br> <span id="couple-names">Alex & Sam</span></h2>
+                        <p class="date">September 20th, 2026</p>
+                        
+                        <div class="story-section">
+                            <h3>Our Story</h3>
+                            <p>It wasn't exactly a fairytale start. Sam was running from the law after a misunderstanding at the local jewelry store. Alex, seeing the chaos from a parked car, didn't call the cops—instead, Alex opened the door and said, "Get in, I'm faster than them." One high-speed chase and a hidden alleyway later, they realized they were either going to jail or getting married. They chose the latter.</p>
+                        </div>
+
+                        <div class="pass-box">
+                            <p>Your Unique Entry Code:</p>
+                            <h3 id="entry-number">0000</h3>
+                            <button class="copy-btn" onclick="copyCode()">Click to Copy Code</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="tear-container"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
